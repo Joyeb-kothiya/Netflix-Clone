@@ -3,33 +3,30 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-
   <title>Netflix Clone</title>
 
-  <!-- Performance -->
   <link rel="preconnect" href="https://api.themoviedb.org">
   <link rel="preconnect" href="https://image.tmdb.org">
 
-  <!-- Styles -->
+  <!-- Icons -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
   <link rel="stylesheet" href="style.css"/>
 </head>
 <body>
 
 <!-- ================= NAVBAR ================= -->
 <nav class="navbar">
-  <img src="assets/Netflix_Logo_PMS.png" class="logo" />
+  <img src="assets/Netflix_Logo_PMS.png" class="logo" alt="Netflix"/>
 
-  <!-- RIGHT SIDE -->
   <div class="nav-right">
-    <input
-      type="text"
-      class="search-input"
-      placeholder="Search movies..."
-    />
-    <button class="sign-in">Sign In</button>
+    <button class="icon-btn" id="searchBtn">
+      <span class="material-icons">search</span>
+    </button>
+
+    <button class="sign-up">Sign Up</button>
   </div>
 </nav>
-
 
 <!-- ================= BANNER ================= -->
 <section class="banner">
@@ -42,13 +39,11 @@
       <button class="btn info-btn">ℹ More Info</button>
     </div>
   </div>
-
   <div class="fade-bottom"></div>
 </section>
 
 <!-- ================= MOVIE ROWS ================= -->
 <main>
-
   <section class="rows">
     <h2>Trending Now</h2>
     <div class="row-posters" id="trending"></div>
@@ -63,10 +58,8 @@
     <h2>Action Movies</h2>
     <div class="row-posters" id="action"></div>
   </section>
-
 </main>
 
-<!-- ================= SCRIPT ================= -->
 <script src="script.js"></script>
 </body>
 </html>
