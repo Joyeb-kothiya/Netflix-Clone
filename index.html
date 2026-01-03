@@ -17,7 +17,7 @@
 
 <!-- ================= NAVBAR ================= -->
 <header class="navbar">
-  <a href="index.html">
+  <a href="/">
     <img src="assets/Netflix_Logo_PMS.png" class="logo" alt="Netflix">
   </a>
 
@@ -26,12 +26,9 @@
     id="searchInput"
     class="search-input"
     placeholder="Search movies..."
-    autocomplete="off"
   />
 
-  <nav class="nav-actions">
-    <button class="sign-in">Sign In</button>
-  </nav>
+  <button class="sign-in">Sign In</button>
 </header>
 
 <!-- ================= BANNER ================= -->
@@ -69,41 +66,7 @@
 
 </main>
 
-<!-- ================= MOVIE DETAILS MODAL ================= -->
-<div id="detailsModal" class="modal hidden">
-  <div class="details-box">
-    <span id="closeDetails" class="close-btn">✖</span>
-
-    <img
-      id="detailsPoster"
-      alt="Movie Poster"
-      loading="lazy"
-    />
-
-    <div class="details-info">
-      <h2 id="detailsTitle"></h2>
-      <p id="detailsOverview"></p>
-      <p id="detailsMeta"></p>
-    </div>
-  </div>
-</div>
-
-<!-- ================= TRAILER MODAL ================= -->
-<div id="trailerModal" class="modal hidden">
-  <div class="modal-content">
-    <span id="closeModal" class="close-btn">✖</span>
-
-    <iframe
-      id="trailerFrame"
-      title="Movie Trailer"
-      allow="autoplay; encrypted-media"
-      allowfullscreen
-    ></iframe>
-  </div>
-</div>
-
 <!-- ================= SCRIPT ================= -->
 <script src="script.js"></script>
-
 </body>
 </html>
