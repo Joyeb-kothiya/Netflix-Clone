@@ -25,44 +25,41 @@ body {
   padding-top: 70px; /* navbar offset */
 }
 
-/* ================= NAVBAR ================= */
+/* ================= NAVBAR (FIXED) ================= */
 .navbar {
   position: fixed;
   top: 0;
+  left: 0;
   width: 100%;
-  height: 70px;
-  padding: 0 30px;
+  height: 68px;
+  padding: 0 36px;
   display: flex;
   align-items: center;
-  gap: 15px;
+  gap: 20px;
   z-index: 1000;
-  background: linear-gradient(
-    to bottom,
-    rgba(0, 0, 0, 0.95),
-    rgba(0, 0, 0, 0.5),
-    transparent
-  );
-  backdrop-filter: blur(8px);
+
+  background: rgba(0, 0, 0, 0.75);
+  transition: background 0.3s ease;
+}
+
+/* Solid background on scroll */
+.navbar.scrolled {
+  background: #000;
 }
 
 .logo {
-  width: 90px;
-  flex-shrink: 0;
+  width: 92px;
+  cursor: pointer;
 }
 
 .search-input {
-  flex: 1;
+  margin-left: 20px;
   max-width: 260px;
-  background: #111;
+  background: rgba(0,0,0,0.6);
   border: 1px solid #333;
-  color: var(--text-main);
+  color: #fff;
   padding: 7px 12px;
   border-radius: 4px;
-  outline: none;
-}
-
-.search-input:focus {
-  border-color: var(--netflix-red);
 }
 
 .nav-actions {
@@ -71,12 +68,23 @@ body {
 
 .sign-in {
   background: var(--netflix-red);
-  color: var(--text-main);
+  color: #fff;
   border: none;
-  padding: 8px 16px;
-  cursor: pointer;
+  padding: 7px 16px;
   border-radius: 4px;
   font-weight: 600;
+  cursor: pointer;
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+  .navbar {
+    padding: 0 20px;
+  }
+
+  .search-input {
+    display: none;
+  }
 }
 
 /* ================= BANNER ================= */
