@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+  <title>Netflix Clone</title>
+
+  <!-- Performance -->
+  <link rel="preconnect" href="https://api.themoviedb.org">
+  <link rel="preconnect" href="https://image.tmdb.org">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+
+<!-- ================= NAVBAR ================= -->
+<header class="navbar">
+  <a href="index.html">
+    <img src="public/Netflix_2015_logo.svg" class="logo" alt="Netflix">
+  </a>
+
+  <input
+    type="text"
+    id="searchInput"
+    class="search-input"
+    placeholder="Search movies..."
+    autocomplete="off"
+  />
+
+  <nav class="nav-actions">
+    <button class="sign-in">Sign In</button>
+  </nav>
+</header>
+
+<!-- ================= BANNER ================= -->
+<section class="banner">
+  <div class="banner-content">
+    <h1 id="banner-title">Loading...</h1>
+    <p id="banner-desc"></p>
+
+    <div class="banner-buttons">
+      <button class="btn play-btn">▶ Play</button>
+      <button class="btn info-btn">ℹ More Info</button>
+    </div>
+  </div>
+
+  <div class="fade-bottom"></div>
+</section>
+
+<!-- ================= MOVIE ROWS ================= -->
+<main>
+
+  <section class="rows">
+    <h2>Trending Now</h2>
+    <div class="row-posters" id="trending"></div>
+  </section>
+
+  <section class="rows">
+    <h2>Top Rated</h2>
+    <div class="row-posters" id="topRated"></div>
+  </section>
+
+  <section class="rows">
+    <h2>Action Movies</h2>
+    <div class="row-posters" id="action"></div>
+  </section>
+
+</main>
+
+<!-- ================= MOVIE DETAILS MODAL ================= -->
+<div id="detailsModal" class="modal hidden">
+  <div class="details-box">
+    <span id="closeDetails" class="close-btn">✖</span>
+
+    <img
+      id="detailsPoster"
+      alt="Movie Poster"
+      loading="lazy"
+    />
+
+    <div class="details-info">
+      <h2 id="detailsTitle"></h2>
+      <p id="detailsOverview"></p>
+      <p id="detailsMeta"></p>
+    </div>
+  </div>
+</div>
+
+<!-- ================= TRAILER MODAL ================= -->
+<div id="trailerModal" class="modal hidden">
+  <div class="modal-content">
+    <span id="closeModal" class="close-btn">✖</span>
+
+    <iframe
+      id="trailerFrame"
+      title="Movie Trailer"
+      allow="autoplay; encrypted-media"
+      allowfullscreen
+    ></iframe>
+  </div>
+</div>
+
+<!-- ================= SCRIPT ================= -->
+<script src="script.js"></script>
+
+</body>
+</html>
