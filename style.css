@@ -4,7 +4,7 @@
   --bg-dark: #111;
   --bg-darker: #000;
   --text-main: #fff;
-  --text-muted: #aaa;
+  --text-muted: #b3b3b3;
 }
 
 * {
@@ -22,15 +22,13 @@ body {
   background: var(--bg-dark);
   color: var(--text-main);
   overflow-x: hidden;
-  padding-top: 70px; /* navbar offset */
+  padding-top: 68px; /* navbar offset */
 }
 
-/* ================= NAVBAR (FIXED) ================= */
+/* ================= NAVBAR ================= */
 .navbar {
   position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
+  inset: 0 0 auto 0;
   height: 68px;
   padding: 0 36px;
   display: flex;
@@ -38,13 +36,12 @@ body {
   gap: 20px;
   z-index: 1000;
 
-  background: rgba(0, 0, 0, 0.75);
-  transition: background 0.3s ease;
+  background: transparent;
+  transition: background 0.35s ease;
 }
 
-/* Solid background on scroll */
 .navbar.scrolled {
-  background: #000;
+  background: rgba(0, 0, 0, 0.95);
 }
 
 .logo {
@@ -53,13 +50,17 @@ body {
 }
 
 .search-input {
-  margin-left: 20px;
   max-width: 260px;
   background: rgba(0,0,0,0.6);
   border: 1px solid #333;
   color: #fff;
   padding: 7px 12px;
   border-radius: 4px;
+  outline: none;
+}
+
+.search-input:focus {
+  border-color: var(--netflix-red);
 }
 
 .nav-actions {
@@ -76,30 +77,19 @@ body {
   cursor: pointer;
 }
 
-/* MOBILE */
-@media (max-width: 768px) {
-  .navbar {
-    padding: 0 20px;
-  }
-
-  .search-input {
-    display: none;
-  }
-}
-
 /* ================= BANNER ================= */
 .banner {
   position: relative;
-  height: 80vh;            /* 🔥 FIXED */
-  min-height: 480px;
+  height: 80vh;
+  min-height: 520px;
   background:
-    linear-gradient(to top, rgba(0,0,0,0.85), transparent),
-    radial-gradient(circle at top, #222, #000);
+    linear-gradient(to top, rgba(0,0,0,0.9), transparent),
+    linear-gradient(to right, rgba(0,0,0,0.75), transparent);
   background-size: cover;
   background-position: center;
   display: flex;
   align-items: flex-end;
-  padding: 60px 40px;
+  padding: 70px 40px;
 }
 
 .banner-content {
@@ -120,8 +110,8 @@ body {
 
 .banner-buttons {
   display: flex;
-  gap: 10px;
-  margin-top: 20px;
+  gap: 12px;
+  margin-top: 22px;
 }
 
 .banner-buttons .btn {
@@ -132,6 +122,7 @@ body {
   color: var(--text-main);
   border-radius: 4px;
   font-weight: 600;
+  transition: background 0.2s ease;
 }
 
 .banner-buttons .btn:hover {
@@ -140,37 +131,36 @@ body {
 
 .fade-bottom {
   position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 120px;          /* 🔥 REDUCED */
+  inset: auto 0 0 0;
+  height: 110px;
   background-image: linear-gradient(
     180deg,
     transparent,
-    rgba(0,0,0,0.7),
+    rgba(0,0,0,0.75),
     #000
   );
 }
 
-/* ================= MAIN FIX ================= */
+/* ================= MAIN ================= */
 main {
-  margin-top: -40px;      /* 🔥 KEY FIX (removes gap) */
+  margin-top: -50px; /* removes banner gap */
 }
 
 /* ================= ROWS ================= */
 .rows {
   margin-left: 40px;
-  margin-bottom: 30px;
+  margin-bottom: 35px;
 }
 
 .rows h2 {
-  margin-bottom: 10px;
-  font-size: 1.3rem;
+  margin-bottom: 12px;
+  font-size: 1.35rem;
+  font-weight: 600;
 }
 
 .row-posters {
   display: flex;
-  gap: 10px;
+  gap: 12px;
   overflow-x: auto;
   padding: 12px 0;
 }
@@ -180,22 +170,23 @@ main {
 }
 
 .row-poster {
-  height: 160px;
+  height: 165px;
   width: 110px;
   object-fit: cover;
   border-radius: 6px;
   cursor: pointer;
-  transition: transform 0.25s ease;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
 .row-poster:hover {
   transform: scale(1.12);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.6);
 }
 
 /* ================= SKELETON ================= */
 .poster-skeleton {
   width: 110px;
-  height: 160px;
+  height: 165px;
   border-radius: 6px;
   background: linear-gradient(
     90deg,
@@ -216,7 +207,7 @@ main {
 .modal {
   position: fixed;
   inset: 0;
-  background: rgba(0,0,0,0.88);
+  background: rgba(0,0,0,0.9);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -248,7 +239,7 @@ main {
 
 .modal-content {
   width: 92%;
-  max-width: 850px;
+  max-width: 860px;
   position: relative;
 }
 
@@ -261,24 +252,32 @@ main {
 
 .close-btn {
   position: absolute;
-  top: -40px;
+  top: -38px;
   right: 0;
   cursor: pointer;
   font-size: 22px;
 }
 
-/* ================= MOBILE ================= */
+/* ================= RESPONSIVE ================= */
 @media (max-width: 768px) {
+  .navbar {
+    padding: 0 20px;
+  }
+
+  .search-input {
+    display: none;
+  }
+
   .banner {
-    padding: 50px 20px;
+    padding: 60px 20px;
   }
 
   .banner-content h1 {
-    font-size: 2.2rem;
+    font-size: 2.3rem;
   }
 
   .row-poster {
-    height: 120px;
+    height: 125px;
     width: 90px;
   }
 
@@ -289,10 +288,6 @@ main {
 }
 
 @media (max-width: 480px) {
-  .search-input {
-    display: none;
-  }
-
   .rows {
     margin-left: 20px;
   }
